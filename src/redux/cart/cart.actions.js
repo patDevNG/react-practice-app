@@ -18,3 +18,8 @@ export const removeCartItem = item =>({
     payload:item
 })
 
+export const emptyCartAfterPayment = ()=>({
+    type:CartActionTypes.EMPTY_CART_AFTER_PAYMENT,
+    
+})
+

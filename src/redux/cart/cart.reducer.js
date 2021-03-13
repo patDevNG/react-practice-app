@@ -27,7 +27,12 @@ const cartReducer =(state = INITIAL_STATE,action)=>{
                 return{
                     ...state,
                     cartItems: state.cartItems.filter(cartitem =>cartitem.id !== action.payload.id)
-                }    
+                }
+            case CartActionTypes.EMPTY_CART_AFTER_PAYMENT:
+                return{
+                    ...state,
+                    cartItems:[]
+                }        
          default:
          return state
     }
