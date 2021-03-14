@@ -32,7 +32,7 @@ const StripeCheckoutButton=({price,emptyCartAfterSuccessfulPayment,history})=>{
         />
     )
 }
-const mapDispatchToPro = dispatch=>({
+const mapDispatchToProp = dispatch=>({
     emptyCartAfterSuccessfulPayment: ()=>dispatch(emptyCartAfterPayment())
 })
-export default withRouter(connect(null,mapDispatchToPro)(StripeCheckoutButton))
+export default withRouter(connect(null,mapDispatchToProp)(StripeCheckoutButton))

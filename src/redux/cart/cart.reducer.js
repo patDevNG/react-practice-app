@@ -31,7 +31,7 @@ const cartReducer =(state = INITIAL_STATE,action)=>{
             case CartActionTypes.EMPTY_CART_AFTER_PAYMENT:
                 return{
                     ...state,
-                    cartItems:[]
+                    cartItems:INITIAL_STATE.cartItems
                 }        
          default:
          return state
