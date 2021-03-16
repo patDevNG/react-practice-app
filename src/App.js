@@ -12,11 +12,12 @@ import Header from './components/header/header.component'
 import {createStructuredSelector} from 'reselect'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
-import {selectCurrentUser} from './redux/user/user.selector'
+import {selectCurrentUser} from './redux/user/user.selector';
+import {selectCollectionForPreview} from './redux/shop/shop.selector'
 class App extends Component {
   unsubscribeFromAuth = null;
   componentDidMount(){
-    const {setCurrentUser} = this.props
+    const {setCurrentUser } = this.props
   this.unsubscribeFromAuth =  auth.onAuthStateChanged(async userAuth=>{
      if(userAuth){
        const userRef = await createUserProfileDocument(userAuth)
@@ -29,7 +30,8 @@ class App extends Component {
          
        })
      }else{
-       setCurrentUser(userAuth)
+       setCurrentUser(userAuth);
+    
        
      }
     
@@ -55,7 +57,8 @@ class App extends Component {
   }
 }
 const mapStateToProp =createStructuredSelector({
-  currentUser:selectCurrentUser
+  currentUser:selectCurrentUser,
+  
 })
 const mapDispatchToProps = dispatch =>({
    setCurrentUser:user =>dispatch(setCurrentUser(user))
